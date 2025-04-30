@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tejidosgloria</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+  <header>
+    <h1>TEJIDOS GLORIA🌷</h1>
+    <h2>
+    <div class="slogan">  
+      <p>HECHOS CON AMOR</p>
+      <p>🌸Gloria – Hecho a mano🌸</p>
+      <p>🌷Cada ramo es más que un detalle: es una historia tejida con dedicación, creatividad y mucho amor💝</p>
+      <p>Porque cada flor lleva el sello de unas manos que crean con el corazón</p>
+    </div>  
+    </h2>  
+    <nav>
+      <button onclick="toggleCart()">🛒 Ver carrito</button>
+    </nav>
+  </header>
+
+  <div class="carrusel" id="carrusel">
+    <img src="imagenes/ramo1.jpeg" class="activo" alt="Producto 1">
+    <img src="imagenes/ramo2.jpeg" alt="Producto 2">
+    <img src="imagenes/ramo3.jpeg" alt="Producto 3">
+    <img src="imagenes/ramo4.jpeg" alt="Producto 4">
+    <img src="imagenes/ramo5.jpeg" alt="Producto 5">
+    <img src="imagenes/ramo6.jpeg" alt="Producto 6">
+    <img src="imagenes/ramo7.jpeg" alt="Producto 7">
+    <img src="imagenes/ramo8.jpeg" alt="Producto 8">
+    <img src="imagenes/ramo9.jpeg" alt="Producto 9">
+    <img src="imagenes/ramo10.jpeg" alt="Producto 10">
+    
+    <!-- Botones manuales -->
+    <button class="prev" onclick="mostrarImagen(indice - 1)">&#10094;</button>
+    <button class="next" onclick="mostrarImagen(indice + 1)">&#10095;</button>
+    <div class="indicadores" id="indicadores"></div>
+  </div>
+  
+
+  <main>
+    <section class="catalogo" id="catalogo">
+      <!-- Los productos se insertan desde JS -->
+    </section>
+    <!-- Frases para pedidos personalizados -->
+    <section class="pedidos-personalizados">
+      <h2>🌿 Haz tu pedido personalizado</h2>
+      <div class="frases-personalizadas">
+       <p>"¿Tienes una idea en mente? Déjanos hacerla realidad con un ramo creado especialmente para ti."</p>
+       <p>"Personaliza tu ramo y hazlo tan único como tu ser querido. ¡Elige cada detalle!"</p>
+      </div>
+    </section>
+    
+    <section class="pedido">
+      <h2>📋 Realizar un pedido personalizado 😊🌸</h2>
+      <form id="formulario-pedido">
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="text" name="producto" placeholder="Producto que deseas" required>
+        <input type="number" name="cantidad" placeholder="Cantidad" min="1" required>
+        <textarea name="direccion" placeholder="Dirección y mensaje personalizado" required></textarea>
+        <input type="tel" name="whatsapp" id="whatsapp" placeholder="Tu número de WhatsApp" required>
+        <button type="submit" class="animar-salto">Enviar pedido</button>
+
+      </form>
+    </section>
+    
+  </main>
+
+  <aside class="carrito" id="carrito">
+    <!-- Botón "X" de cerrar, fuera del contenedor del carrito -->
+    <button class="cerrar-carrito" onclick="cerrarCarrito()">X</button>
+    <!-- Botón de cierre -->
+    <h2>🛒Carrito</h2>
+    <ul id="carrito-items"></ul>
+    <p>Total: S/ <span id="total">0</span></p>
+    <!-- Botón Contactar por WhatsApp -->
+    <button class="whatsapp-btn" onclick="contactarWhatsApp()">
+      <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+    </button>
+
+    <div class="yape-pago">
+      <h3>Paga con Yape</h3>
+      <p><strong>Número:</strong> +51 904 529 674</p>
+      <img src="imagenes/yapeqr.jpeg" alt="QR Yape" class="qr-img">
+      <button onclick="confirmarPago()">Ya pagué</button>
+    </div>    
+    <button class="vaciar-carrito">Vaciar Carrito</button>
+
+  </aside>
+
+  <!-- Frases motivadoras -->
+<section class="motivadoras">
+  <h2>💐 Inspírate con nuestras frases🌸🌷</h2>
+  <div class="frases">
+    <p>"Cada ramo cuenta una historia. ¿Cuál será la tuya?"</p>
+    <p>"Haz que cada momento sea especial con un detalle hecho a mano."</p>
+    <p>"Regala amor, regala flores."</p>
+    <p>"No solo vendemos flores, vendemos emociones."</p>
+    <p>"Tu compra no es solo un regalo, es una forma de decir 'Te quiero'."</p>
+  </div>
+</section>
+
+  <footer>
+    <p>Contáctanos: <strong>+51 904 529 674</strong></p>
+    <p>Síguenos:</p>
+    <div class="redes">
+      <a href="https://wa.me/51904529674" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.facebook.com/@gloriaflores" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/gloriaflores" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@gloriaflores" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <p>&copy; 2025 GLORIA - Todos los derechos reservados</p>
+  </footer>
+  <!-- Botón flotante de WhatsApp con número -->
+  <a href="https://wa.me/51904529674" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>904 529 674
+  </a>
+  
+  <script src="app.js"></script>
+</body>
+</html>
